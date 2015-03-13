@@ -29,3 +29,7 @@ This file will be executed after machine boot.
 cd $APP_ROOT
 composer install --no-interaction --prefer-dist
 ```
+
+## Build a new Version
+- `docker build -t="bowlingx/docker-nginx-php" .`
+- `docker push bowlingx/docker-nginx-php`
