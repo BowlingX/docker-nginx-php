@@ -9,7 +9,8 @@ ENV HOME /root
 
 ENV TIMEZONE Europe/Berlin
 ENV APP_ROOT /var/www
-ENV COMPOSER_HOME /var/www
+
+VOLUME $APP_ROOT
 
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
@@ -53,7 +54,6 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php5/fpm/php-fpm.conf
 RUN sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php5/fpm/php.ini
 
-RUN mkdir -p        /var/www
 ADD docker/default   /etc/nginx/sites-available/default
 RUN mkdir           /etc/service/nginx
 ADD docker/nginx.sh  /etc/service/nginx/run
