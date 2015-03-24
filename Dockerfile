@@ -76,8 +76,8 @@ ENV COMPOSER_HOME /root
 
 # Install amqp extension
 
-ENV AMQP_VERSION 0.3.1
-ENV RABBITMQ_LIB_VERSION v0.4.1
+ENV AMQP_VERSION 1.4.0
+ENV RABBITMQ_LIB_VERSION v0.5.2
 
 RUN apt-get install -y --force-yes pkg-config librabbitmq-dev cmake
 
