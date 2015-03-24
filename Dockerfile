@@ -76,11 +76,12 @@ ENV COMPOSER_HOME /root
 
 # Install amqp extension
 
-ENV AMQP_VERSION 1.4.0
+ENV AMQP_VERSION 0.3.1
+ENV RABBITMQ_LIB_VERSION v0.4.1
 
 RUN apt-get install -y --force-yes pkg-config librabbitmq-dev cmake
 
-RUN git clone --branch v0.5.1 https://github.com/alanxz/rabbitmq-c
+RUN git clone --branch "$RABBITMQ_LIB_VERSION" https://github.com/alanxz/rabbitmq-c
 WORKDIR rabbitmq-c
 
 RUN mkdir build
