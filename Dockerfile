@@ -72,15 +72,12 @@ ADD docker/etc  /etc
 EXPOSE 80
 # End Nginx-PHP
 
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 ENV COMPOSER_HOME /root
 
 # Install amqp extension
 
 ENV AMQP_VERSION 1.4.0
 
-RUN apt-get update
 RUN apt-get install -y --force-yes pkg-config librabbitmq-dev cmake
 
 RUN git clone --branch v0.5.1 https://github.com/alanxz/rabbitmq-c
@@ -92,3 +89,5 @@ RUN cmake ..
 RUN cmake --build . --target install
 
 RUN pecl install amqp-"$AMQP_VERSION"
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
