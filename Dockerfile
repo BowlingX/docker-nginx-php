@@ -2,8 +2,11 @@
 # Dockerfile for a simple php-nginx configuration that works with composer
 ############################################################
 
+
 FROM phusion/baseimage:0.9.16
 MAINTAINER David Heidrich (me@bowlingx.com)
+
+ENV BUILD 31.05.2015
 
 ENV HOME /root
 
@@ -29,7 +32,7 @@ RUN apt-get install -y --force-yes libcurl4-gnutls-dev php5-cli php5-fpm php5-my
 Run apt-get install -y --force-yes libxml2-dev
 
 # Solr support:
-RUN pecl install -f solr-1.0.2
+RUN pecl install -f solr-2.1.0
 
 # Install VCS stuff
 RUN apt-get install -y --force-yes git mercurial
