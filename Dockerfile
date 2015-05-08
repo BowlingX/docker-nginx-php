@@ -26,7 +26,7 @@ RUN add-apt-repository -y ppa:ondrej/php5
 RUN add-apt-repository -y ppa:nginx/stable
 RUN apt-get update
 RUN apt-get install -y --force-yes libcurl4-gnutls-dev php5-cli php5-fpm php5-mysql php5-pgsql php5-sqlite php5-curl\
-		       php5-gd php5-mcrypt php5-intl php5-imap php5-tidy php-pear php5-dev php5-xsl
+		       php5-gd php5-mcrypt php5-intl php5-imap php5-tidy php-pear php5-dev php5-xsl php5-imagick
 
 # Install Additional PECL modules:
 Run apt-get install -y --force-yes libxml2-dev
