@@ -101,3 +101,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # Increase upload size:
 RUN sed -i "s|upload_max_filesize =.*|upload_max_filesize = 5M|" /etc/php5/fpm/php.ini
 RUN sed -i "s|post_max_size =.*|post_max_size = 6M|" /etc/php5/cli/php.ini
+
+# Setup Timezone
+RUN echo $TIMEZONE | sudo tee /etc/timezone
+RUN sudo dpkg-reconfigure -f noninteractive tzdata
+
