@@ -3,7 +3,7 @@
 ############################################################
 
 
-FROM phusion/baseimage:0.9.17
+FROM phusion/baseimage:0.9.18
 MAINTAINER David Heidrich (me@bowlingx.com)
 
 ENV BUILD 31.05.2015
@@ -22,7 +22,7 @@ CMD ["/sbin/my_init"]
 # Nginx-PHP Installation
 RUN apt-get update
 RUN apt-get install -y vim curl wget build-essential python-software-properties
-RUN add-apt-repository -y ppa:ondrej/php5
+RUN add-apt-repository -y ppa:ondrej/php5-5.6
 RUN add-apt-repository -y ppa:nginx/stable
 RUN apt-get update
 RUN apt-get install -y --force-yes imagemagick libcurl4-gnutls-dev php5-cli php5-fpm php5-mysql php5-pgsql php5-sqlite php5-curl\
