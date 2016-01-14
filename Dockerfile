@@ -106,3 +106,14 @@ RUN sed -i "s|post_max_size =.*|post_max_size = 6M|" /etc/php5/cli/php.ini
 RUN echo $TIMEZONE | sudo tee /etc/timezone
 RUN sudo dpkg-reconfigure -f noninteractive tzdata
 
+# Log to syslog
+RUN sed -i "s|error_log =.*|error_log = syslog|" /etc/php5/cli/php.ini
+RUN sed -i "s|error_log =.*|error_log = syslog|" /etc/php5/fpm/php.ini
+
+RUN sed -i "s|display_errors =.*|display_errors = Off|" /etc/php5/cli/php.ini
+RUN sed -i "s|display_errors =.*|display_errors = Off|" /etc/php5/fpm/php.ini
+
+RUN sed -i "s|display_startup_errors =.*|display_startup_errors = Off|" /etc/php5/cli/php.ini
+RUN sed -i "s|display_startup_errors =.*|display_startup_errors = Off|" /etc/php5/fpm/php.ini
+
+
