@@ -116,4 +116,8 @@ RUN sed -i "s|display_errors =.*|display_errors = Off|" /etc/php5/fpm/php.ini
 RUN sed -i "s|display_startup_errors =.*|display_startup_errors = Off|" /etc/php5/cli/php.ini
 RUN sed -i "s|display_startup_errors =.*|display_startup_errors = Off|" /etc/php5/fpm/php.ini
 
+# Increase memory_limit
+RUN sed -i "s|memory_limit =.*|memory_limit = 1500M|" /etc/php5/fpm/php.ini
+RUN sed -i "s|memory_limit =.*|memory_limit = 1500M|" /etc/php5/cli/php.ini
 
+RUN sed -i "s|error_log =.*|error_log = syslog|" /etc/php5/fpm/php-fpm.conf
