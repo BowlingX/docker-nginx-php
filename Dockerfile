@@ -13,8 +13,6 @@ ENV HOME /root
 ENV TIMEZONE Europe/Berlin
 ENV APP_ROOT /var/www
 
-VOLUME $APP_ROOT
-
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 CMD ["/sbin/my_init"]
@@ -108,8 +106,8 @@ RUN echo $TIMEZONE | sudo tee /etc/timezone
 RUN sudo dpkg-reconfigure -f noninteractive tzdata
 
 # Log to syslog
-RUN sed -i "s|error_log =.*|error_log = syslog|" /etc/php5/cli/php.ini
-RUN sed -i "s|error_log =.*|error_log = syslog|" /etc/php5/fpm/php.ini
+RUN sed -i "s|;error_log =.*|error_log = syslog|" /etc/php5/cli/php.ini
+RUN sed -i "s|;error_log =.*|error_log = syslog|" /etc/php5/fpm/php.ini
 
 RUN sed -i "s|display_errors =.*|display_errors = Off|" /etc/php5/cli/php.ini
 RUN sed -i "s|display_errors =.*|display_errors = Off|" /etc/php5/fpm/php.ini
